@@ -2,15 +2,15 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-1">
-                <h3 class="content-header-title">Halaman <?=$judul?></h3>
+                <h3 class="content-header-title">Halaman <?= $judul ?></h3>
             </div>
             <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-12">
                 <div class="breadcrumb-wrapper col-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?=site_url('beranda')?>">Beranda</a>
+                        <li class="breadcrumb-item"><a href="<?= site_url('beranda') ?>">Beranda</a>
                         </li>
 
-                        <li class="breadcrumb-item active"><?=$judul?>
+                        <li class="breadcrumb-item active"><?= $judul ?>
                         </li>
                     </ol>
                 </div>
@@ -26,10 +26,10 @@
 
                             <div class="card-header">
                                 <h4 class="card-title">TAMPILAN DEPAN</h4>
-                                <input type="hidden" name="" id="id_asn" value="<?=$data['id_ptt']?>">
-                                <input type="hidden" name="" id="id_card_depan" value="<?=$data['id_card_depan']?>">
+                                <input type="hidden" name="" id="id_asn" value="<?= $data['id_ptt'] ?>">
+                                <input type="hidden" name="" id="id_card_depan" value="<?= $data['id_card_depan'] ?>">
                                 <input type="hidden" name="" id="id_card_belakang"
-                                    value="<?=$data['id_card_belakang']?>">
+                                    value="<?= $data['id_card_belakang'] ?>">
 
                             </div>
                             <div class="card-content">
@@ -39,16 +39,16 @@
                                         <div class="col-xl-12 col-lg-6 col-md-12 mb-1 text-center">
                                             <div id="depan">
 
-                                                <img class="foto" src="<?=base_url().$data['foto']?>" alt="">
+                                                <img class="foto" src="<?= base_url() . $data['foto'] ?>" alt="">
 
 
 
 
                                                 <img class="template_depan"
-                                                    src="<?=base_url()?>asset/template/depan.png" alt="">
+                                                    src="<?= base_url() ?>asset/template/depan.png" alt="">
 
                                                 <div class="singkatan">
-                                                    <?=$data['singkatan']?>
+                                                    <?= $data['singkatan'] ?>
                                                 </div>
                                                 <div class="background">
                                                     &nbsp;
@@ -57,12 +57,12 @@
 
 
                                                 <div class="nama_depan">
-                                                    <p><?=$data['nama']?></p>
+                                                    <p><?= $data['nama'] ?></p>
                                                 </div>
 
 
                                                 <!-- <div class="nip_depan">
-                                                    <p>NIP. <?=nip($data['nip'])?></p>
+                                                    <p>NIP. <?= nip($data['nip']) ?></p>
                                                 </div> -->
                                             </div>
 
@@ -198,42 +198,43 @@
 
 
                                                 <img class="template_belakang"
-                                                    src="<?=base_url()?>asset/template/belakang-2.png" alt="">
+                                                    src="<?= base_url() ?>asset/template/belakang-2.png" alt="">
 
 
                                                 <div class="nama_belakang">
-                                                    <p><?=$data['nama']?></p>
+                                                    <p><?= $data['nama'] ?></p>
                                                 </div>
 
 
 
                                                 <!-- <div class="nip_belakang">
-                                                    <p><?=nip($data['nip'])?></p>
+                                                    <p><?= nip($data['nip']) ?></p>
                                                 </div> -->
 
 
                                                 <div class="jabatan">
-                                                    <p><?=$data['jabatan']?></p>
+                                                    <p><?= $data['jabatan'] ?></p>
                                                 </div>
 
                                                 <div class="alamat">
-                                                    <p><?=$data['alamat']?></p>
+                                                    <p><?= $data['alamat'] ?></p>
                                                 </div>
 
                                                 <div class="goldar">
-                                                    <p><?=$data['goldar']?></p>
+                                                    <p><?= $data['goldar'] ?></p>
                                                 </div>
 
                                                 <div class="dikeluarkan">
-                                                    <p><?=tgl($data['tgl_dikeluarkan'])?></p>
+                                                    <p><?= tgl($data['tgl_dikeluarkan']) ?></p>
                                                 </div>
 
                                                 <div class="ttd">
-                                                    <img src="<?=base_url().$pengaturan['scan-ttd']['value']?>" alt="">
+                                                    <img src="<?= base_url() . $pengaturan['scan-ttd']['value'] ?>"
+                                                        alt="">
                                                 </div>
 
                                                 <div class="nama_bupati">
-                                                    <p><?=$pengaturan['nama-bupati']['value']?></p>
+                                                    <p><?= $pengaturan['nama-bupati']['value'] ?></p>
                                                 </div>
                                             </div>
 
@@ -271,7 +272,7 @@
                             <div class="col-xl-12 col-lg-6 col-md-12 mb-1">
                                 <fieldset class="form-group">
                                     <label for="basicInput"><i>Posisi Vertikal Nama</i> :</label>
-                                    <input type="range" name="" value="66" id="posisi_nama" min="50" max="100"
+                                    <input type="range" name="" value="60" id="posisi_nama" min="50" max="100"
                                         class="form-control">
                                 </fieldset>
                             </div>
@@ -288,7 +289,7 @@
                             <div class="col-xl-12 col-lg-6 col-md-12 mb-1">
                                 <fieldset class="form-group">
                                     <label for="basicInput"><i>Posisi Vertikal Jabatan </i>:</label>
-                                    <input type="range" name="" value="165" id="posisi_jabatan" min="80" max="300"
+                                    <input type="range" name="" value="167" id="posisi_jabatan" min="80" max="300"
                                         class="form-control">
                                 </fieldset>
                             </div>
@@ -305,7 +306,7 @@
                             <div class="col-xl-12 col-lg-6 col-md-12 mb-1">
                                 <fieldset class="form-group">
                                     <label><i>Posisi Vertikal Alamat</i> : </label>
-                                    <input type="range" name="" value="295" id="posisi_alamat" min="250" max="400"
+                                    <input type="range" name="" value="287" id="posisi_alamat" min="250" max="400"
                                         class="form-control">
                                 </fieldset>
                             </div>

@@ -9,15 +9,8 @@
 
 }
 
-
 .background {
-    /* position: absolute;
-    top: 410px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 205px;
-    height: 255px;
-    z-index: 1; */
+
 
     width: 612px;
     height: 1000px;
@@ -97,25 +90,17 @@
 
 
 #belakang {
-    /* position: relative;
-    height: 670px;
-    width: 410px;
-    height: 655px;
-    width: 400px;
-    margin: auto; */
+
     width: 614.76px;
     height: 1010px;
     position: relative;
-    /* border: black solid 1px; */
+
 
 }
 
 
 .template_belakang {
-    /* position: absolute;
-    top: 320px;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+
     width: 614.76px;
     height: 1010px;
     position: absolute;
@@ -146,9 +131,10 @@
 .nip_belakang {
 
     position: absolute;
-    top: 170px;
-    width: 330px;
-    font-size: 25px;
+    top: 168px;
+
+    width: 340px;
+    font-size: 26px;
     font-family: "Arial Black";
     color: black;
     left: 70%;
@@ -163,7 +149,7 @@
 .jabatan {
 
     position: absolute;
-    top: 285px;
+    top: 248px;
     width: 330px;
     font-size: 30px;
     font-family: "Arial Black";
@@ -179,7 +165,7 @@
 .alamat {
 
     position: absolute;
-    top: 420px;
+    top: 425px;
     width: 330px;
     font-size: 30px;
     font-family: "Arial Black";
@@ -193,7 +179,7 @@
 .goldar {
 
     position: absolute;
-    top: 545px;
+    top: 547px;
     width: 330px;
     font-size: 35px;
     font-family: "Arial Black";
@@ -210,7 +196,7 @@
 .dikeluarkan {
 
     position: absolute;
-    top: 645px;
+    top: 652px;
     width: 330px;
     font-size: 30px;
     font-family: "Arial Black";
@@ -227,7 +213,7 @@
 .ttd {
     position: absolute;
     top: 820px;
-    left: 35%;
+    left: 50%;
     z-index: 2;
     transform: translate(-50%, -50%);
 }
@@ -242,9 +228,10 @@
     top: 950px;
     font-size: 40px;
     font-family: "Arial Black";
-    left: 50%;
+    left: 70%;
     color: black;
     transform: translate(-50%, -50%);
     z-index: 2;
+    width: 100%;
 
 }

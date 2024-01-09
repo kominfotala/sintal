@@ -38,10 +38,10 @@ function get_data() {
 
             } else {
                 $('#nama').val(data[0].nama);
-                $('#instansi').val(data[0].instansi);
+                $('#instansi').val(data[0].unitkerja);
                 $('#jabatan').val(data[0].jabatan);
                 $('#eselon').val(data[0].eselon);
-                alamat(data[0].instansi);
+                alamat(data[0].unitkerja);
             }
 
 

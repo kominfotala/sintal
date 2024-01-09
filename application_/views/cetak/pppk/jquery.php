@@ -193,7 +193,7 @@ function get_data() {
 
     $.ajax({
 
-        url: "<?= site_url()?>api/get_by_nip",
+        url: "<?= site_url()?>api_pns/get_by_nip",
         method: "POST",
         dataType: 'json',
         // beforeSend: function() {
@@ -214,10 +214,8 @@ function get_data() {
 
 
                 console.log(data);
-                if (data[0].jabatan) {
-                    $('.jabatan').html('<p>' + data[0].jabatan + '</p>');
-                }
-                alamat(data[0].instansi);
+                $('.jabatan').html('<p>' + data[0].jabatan + '</p>');
+                alamat(data[0].unitkerja);
                 background(data[0].eselon);
             }
         },
@@ -258,30 +256,24 @@ function alamat(unitkerja) {
 }
 
 function background(str) {
-    if (str) {
-        str = str.slice(0, -3);
-        if (str == 'II') {
+    str = str.slice(0, -3);
+    if (str == 'II') {
 
-            $('.background').css(
-                'background-color', '#940000'
-            );
-        } else if (str == 'III') {
-            $('.background').css(
-                'background-color', '#0901A2'
-            );
-        } else if (str == 'IV') {
-            $('.background').css(
-                'background-color', '#197603'
-            );
-        } else {
-
-            $('.hide').show();
-        }
-
+        $('.background').css(
+            'background-color', '#940000'
+        );
+    } else if (str == 'III') {
+        $('.background').css(
+            'background-color', '#0901A2'
+        );
+    } else if (str == 'IV') {
+        $('.background').css(
+            'background-color', '#197603'
+        );
     } else {
+
         $('.hide').show();
     }
-
 }
 
 $('#background').change(function() {
@@ -301,7 +293,7 @@ $('#cetak_depan').click(function() {
     var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
         csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 
-    var url = '<?=site_url()?>' + 'cetak/idcard/asn/depan/' + id;
+    var url = '<?=site_url()?>' + 'cetak/idcard/pppk/depan/' + id;
 
     window.scrollTo(0, 0);
     html2canvas(document.getElementById('depan')).then(function(canvas) {
@@ -332,7 +324,7 @@ $('#cetak_belakang').click(function() {
     var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
         csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 
-    var url = '<?=site_url()?>' + 'cetak/idcard/asn/belakang/' + id;
+    var url = '<?=site_url()?>' + 'cetak/idcard/pppk/belakang/' + id;
 
     window.scrollTo(0, 0);
     html2canvas(document.getElementById('belakang')).then(function(canvas) {
@@ -364,7 +356,7 @@ function preview(canvas, file_name, bagian) {
     // alert(file_name);
     // return false;
     url = '<?=base_url()?>' + file_name;
-    url2 = '<?=site_url('cetak/idcard/asn/')?>' + bagian + '/' + '<?= $this->uri->segment(3)?>';
+    url2 = '<?=site_url('cetak/idcard/pppk/')?>' + bagian + '/' + '<?= $this->uri->segment(3)?>';
     html =
         '  <button type="button" class="btn grey btn-outline-danger" data-dismiss="modal">Tutup</button> <a href="' +
         url2 +

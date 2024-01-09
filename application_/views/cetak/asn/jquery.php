@@ -217,7 +217,7 @@ function get_data() {
                 if (data[0].jabatan) {
                     $('.jabatan').html('<p>' + data[0].jabatan + '</p>');
                 }
-                alamat(data[0].instansi);
+                alamat(data[0].unitkerja);
                 background(data[0].eselon);
             }
         },

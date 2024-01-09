@@ -95,10 +95,10 @@ function get_data(nip) {
             } else {
                 $('.hide').hide();
                 $('#nama').val(data[0].nama);
-                $('#instansi').val(data[0].unitkerja);
+                $('#instansi').val(data[0].instansi);
                 $('#jabatan').val(data[0].jabatan);
                 $('#eselon').val(data[0].eselon);
-                alamat(data[0].unitkerja);
+                alamat(data[0].instansi);
                 enabled();
 
 

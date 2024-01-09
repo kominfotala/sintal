@@ -93,7 +93,7 @@ function get_data(nip) {
 
                 let row = data.data;
                 $('.hide').hide();
-                $('#nama').val(row[0].nama);
+                $('#nama').val(row[0].NAMA);
                 $('#jabatan').val(row[0].jabatan);
                 alamat(row[0].instansi);
                 id_instansi(row[0].instansi);

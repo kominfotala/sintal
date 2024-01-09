@@ -1,10 +1,6 @@
-<script src="<?=base_url()?>template/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
-<script src="<?=base_url()?>template/app-assets/js/scripts/forms/select/form-select2.js"></script>
-
 <script>
 $(document).ready(function() {
     $('.hide').hide();
-
 });
 
 $('#tampilkan').click(function() {
@@ -31,7 +27,7 @@ function nip_cek(nip) {
 
     $.ajax({
 
-        url: "<?= site_url()?>app/nip_cek_p3k",
+        url: "<?= site_url()?>app/nip_cek",
         method: "POST",
         dataType: 'json',
         data: {
@@ -73,7 +69,7 @@ function get_data(nip) {
 
     $.ajax({
 
-        url: "<?= site_url()?>api/get_data",
+        url: "<?= site_url()?>api/get_by_nip",
         method: "POST",
         dataType: 'json',
         beforeSend: function() {
@@ -89,21 +85,25 @@ function get_data(nip) {
         success: function(data) {
 
 
-            if (data.status) {
 
-                let row = data.data;
-                $('.hide').hide();
-                $('#nama').val(row[0].nama);
-                $('#jabatan').val(row[0].jabatan);
-                alamat(row[0].instansi);
-                id_instansi(row[0].instansi);
-                enabled();
-            } else {
+            if (data.length === 0) {
+
                 $('.tidak_ditemukan').show();
                 disabled();
                 btn();
-            }
 
+            } else {
+                $('.hide').hide();
+                $('#nama').val(data[0].nama);
+                $('#instansi').val(data[0].unitkerja);
+                $('#jabatan').val(data[0].jabatan);
+                $('#eselon').val(data[0].eselon);
+                alamat(data[0].unitkerja);
+                enabled();
+
+
+
+            }
 
 
 
@@ -112,90 +112,6 @@ function get_data(nip) {
 
     });
 }
-
-
-$('#nip').keyup(function() {
-
-    var form = $('#form').val();
-    var id = $('#id').val();
-    var nip = $(this).val();
-
-
-    var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
-        csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
-
-    $.ajax({
-
-        url: "<?= site_url()?>app/nip_cek_p3k",
-        method: "POST",
-        dataType: 'json',
-        data: {
-            [csrfName]: csrfHash,
-
-
-            form: form,
-            id: id,
-            nip: nip,
-
-        },
-
-        success: function(data) {
-
-
-            if (data == 1) {
-                $('.sudah_ada').show();
-                disabled();
-            } else {
-                $('.hide').hide();
-                enabled();
-
-            }
-
-        },
-
-
-    })
-
-
-
-
-
-});
-
-$('#id_skpd').change(function() {
-
-    var id = $(this).val();
-
-    var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
-        csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
-
-
-
-    $.ajax({
-
-        url: "<?= site_url()?>app/get_alamat_by_id",
-        method: "POST",
-        dataType: 'json',
-        data: {
-            [csrfName]: csrfHash,
-
-
-            id: id,
-
-        },
-
-        success: function(data) {
-
-            $('#alamat').val(data.alamat);
-
-        }
-
-
-
-
-    })
-
-});
 
 function alamat(unitkerja) {
 
@@ -229,53 +145,16 @@ function alamat(unitkerja) {
     })
 }
 
-function id_instansi(str) {
-
-    var csrfName = '<?php echo $this->security->get_csrf_token_name(); ?>',
-        csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
-
-    $.ajax({
-
-        url: "<?= site_url()?>app/get_id_instansi",
-        method: "POST",
-        dataType: 'json',
-        data: {
-            [csrfName]: csrfHash,
-
-            nama_skpd: str,
-        },
-
-        success: function(data) {
-
-
-            if (data.status) {
-                $('#id_skpd').val(data.data);
-              
-            }
-
-        }
-
-
-
-
-    })
-}
-
-
-
-
-
-function disabled() {
-    $(':input[type="submit"]').prop('disabled', true);
-
-}
-
 function btn() {
 
     var html = '<i class="ft-list"></i> Tampilkan';
     $('#tampilkan').html(html);
 }
 
+function disabled() {
+    $(':input[type="submit"]').prop('disabled', true);
+
+}
 
 function enabled() {
     $(':input[type="submit"]').prop('disabled', false);

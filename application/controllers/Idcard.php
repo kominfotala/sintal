@@ -216,7 +216,7 @@ class Idcard extends CI_Controller
 
 
 			$data = array(
-
+                'nama' => $this->input->post('nama', true),
 				'goldar' => $this->input->post('goldar', true),
 				'tgl_dikeluarkan' => $this->input->post('tgl_dikeluarkan', true),
 				'alamat_kantor' => $this->input->post('alamat_kantor', true),
